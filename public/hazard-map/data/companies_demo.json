@@ -1,0 +1,20 @@
+﻿[
+  {
+    "name":"Demo Abatement Co. (Replace Later)",
+    "type":"Asbestos Abatement",
+    "area":"Orléans / Ottawa East",
+    "lat":45.479,
+    "lng":-75.52,
+    "phone":"—",
+    "website":"—"
+  },
+  {
+    "name":"Demo Testing Lab (Replace Later)",
+    "type":"Testing / Sampling",
+    "area":"Ottawa",
+    "lat":45.465,
+    "lng":-75.50,
+    "phone":"—",
+    "website":"—"
+  }
+]

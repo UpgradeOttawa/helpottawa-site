@@ -1,0 +1,10 @@
+[
+  { "era_id": "pre_1940",   "label": "Pre-1940",   "start_year": 0,    "end_year": 1939, "baseline_coeff": 0.95, "sort_order": 1 },
+  { "era_id": "1940_1959",  "label": "1940-1959",  "start_year": 1940, "end_year": 1959, "baseline_coeff": 0.85, "sort_order": 2 },
+  { "era_id": "1960_1979",  "label": "1960-1979",  "start_year": 1960, "end_year": 1979, "baseline_coeff": 0.75, "sort_order": 3 },
+  { "era_id": "1980_1989",  "label": "1980-1989",  "start_year": 1980, "end_year": 1989, "baseline_coeff": 0.45, "sort_order": 4 },
+  { "era_id": "1990_1999",  "label": "1990-1999",  "start_year": 1990, "end_year": 1999, "baseline_coeff": 0.25, "sort_order": 5 },
+  { "era_id": "2000_2009",  "label": "2000-2009",  "start_year": 2000, "end_year": 2009, "baseline_coeff": 0.12, "sort_order": 6 },
+  { "era_id": "2010_2019",  "label": "2010-2019",  "start_year": 2010, "end_year": 2019, "baseline_coeff": 0.08, "sort_order": 7 },
+  { "era_id": "2020_now",   "label": "2020-Now",   "start_year": 2020, "end_year": 2099, "baseline_coeff": 0.05, "sort_order": 8 }
+]

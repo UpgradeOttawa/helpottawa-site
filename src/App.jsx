@@ -22,7 +22,6 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/contractors" element={<ContractorsPage />} />
-            {/* /hazard-map route REMOVED - static files will be served from public/ */}
           </Routes>
         </main>
         <Footer />

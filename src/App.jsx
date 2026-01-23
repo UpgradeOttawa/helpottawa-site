@@ -9,7 +9,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import ContractorsPage from './pages/ContractorsPage';
 import HazardMapPage from './pages/HazardMapPage';
-import HazardMapLiveNuclear from './pages/HazardMapLiveNuclear';
+import HazardMapLive from './pages/HazardMapLive';
 
 function App() {
   return (

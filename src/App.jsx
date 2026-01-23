@@ -9,7 +9,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import ContractorsPage from './pages/ContractorsPage';
 import HazardMapPage from './pages/HazardMapPage';
-<Route path="/hazard-map-live" element={<HazardMapLiveNuclear />} />
+import HazardMapLiveNuclear from './pages/HazardMapLiveNuclear';
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/bathroom-calculator" element={<BathroomCalculator />} />
+            <Route path="/hazard-map-live" element={<HazardMapLiveNuclear />} />
             <Route path="/bathroom-designer" element={<BathroomVisualDesigner />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />

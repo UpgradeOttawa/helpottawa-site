@@ -9,7 +9,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import ContractorsPage from './pages/ContractorsPage';
 import HazardMapPage from './pages/HazardMapPage';
-import HazardMapLive from './pages/HazardMapLive'; // ← NEW: Added this line
+<Route path="/hazard-map-live" element={<HazardMapLiveNuclear />} />
 
 function App() {
   return (

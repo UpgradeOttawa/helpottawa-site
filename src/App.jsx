@@ -19,13 +19,13 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<LandingPage />} />
-            <Route path="/hazard-map-live" element={<HazardMapLiveNuclear />} />
+            <Route path="/bathroom-calculator" element={<BathroomCalculator />} />
             <Route path="/bathroom-designer" element={<BathroomVisualDesigner />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/contractors" element={<ContractorsPage />} />
             <Route path="/hazard-map" element={<HazardMapPage />} />
-            <Route path="/hazard-map-live" element={<HazardMapLive />} /> {/* ← NEW: Added this line */}
+            <Route path="/hazard-map-live" element={<HazardMapLiveNuclear />} />
           </Routes>
         </main>
         <Footer />

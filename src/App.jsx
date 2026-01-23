@@ -8,8 +8,6 @@ import BathroomVisualDesigner from './BathroomVisualDesigner';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import ContractorsPage from './pages/ContractorsPage';
-import HazardMapPage from './pages/HazardMapPage';
-import HazardMapLive from './pages/HazardMapLive';
 
 function App() {
   return (
@@ -24,8 +22,7 @@ function App() {
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/contractors" element={<ContractorsPage />} />
-            <Route path="/hazard-map" element={<HazardMapPage />} />
-            <Route path="/hazard-map-live" element={<HazardMapLive />} />
+            {/* /hazard-map route REMOVED - static files will be served from public/ */}
           </Routes>
         </main>
         <Footer />

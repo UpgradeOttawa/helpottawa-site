@@ -1,5 +1,5 @@
 import React from 'react';
-import { AlertTriangle, CheckCircle } from 'lucide-react';
+import { AlertTriangle, MapPin, Shield, CheckCircle } from 'lucide-react';
 
 const HazardMapPage = () => {
   return (
@@ -8,14 +8,46 @@ const HazardMapPage = () => {
         <div className="max-w-4xl mx-auto text-center">
           <AlertTriangle className="w-16 h-16 mx-auto mb-6" />
           <h1 className="text-5xl font-bold mb-6">Eastern Ontario Hazard Map</h1>
-          <p className="text-xl text-red-100">
+          <p className="text-xl text-red-100 mb-8">
             Check for asbestos, lead paint, radon, and mold before you start any renovation
           </p>
+          
+          {/* BIG BUTTON TO OPEN MAP */}
+          <a 
+            href="/hazard-map/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-10 py-5 bg-white hover:bg-blue-50 text-red-900 rounded-lg font-bold text-xl transition-colors shadow-xl"
+          >
+            🗺️ Open Interactive Map
+          </a>
         </div>
       </section>
 
       <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
+          <div className="bg-blue-50 border-2 border-blue-400 rounded-xl p-8 mb-12">
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">ℹ️ How to Use the Map</h2>
+            <ul className="space-y-2 text-slate-700">
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                <span><strong>Click regions</strong> to see detailed hazard information</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                <span><strong>Toggle hazard types</strong> (asbestos, lead, radon, mold)</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                <span><strong>Color-coded regions</strong> show risk levels based on building era</span>
+              </li>
+              <li className="flex items-start gap-2">
+                <CheckCircle className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
+                <span><strong>Privacy-protected:</strong> No exact addresses stored</span>
+              </li>
+            </ul>
+          </div>
+
           <h2 className="text-3xl font-bold text-slate-900 mb-8 text-center">Why Check for Hazards?</h2>
           
           <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -116,52 +148,27 @@ const HazardMapPage = () => {
             </div>
           </div>
 
-          {/* BIG BUTTON TO INTERACTIVE MAP */}
-          <div className="max-w-4xl mx-auto mt-16">
-            <div className="bg-gradient-to-br from-red-600 to-orange-600 rounded-2xl p-12 text-center text-white shadow-2xl">
-              <div className="text-6xl mb-6">🗺️</div>
-              <h2 className="text-4xl font-bold mb-4">
-                View Interactive Hazard Map
-              </h2>
-              <p className="text-xl mb-8 text-red-50">
-                See real-time hazard risk coefficients for 84 regions across Eastern Ontario
-              </p>
-              <a 
-                href="/hazard-map-live"
-                className="inline-flex items-center gap-3 px-10 py-5 bg-white hover:bg-slate-100 text-red-600 rounded-xl font-bold text-xl shadow-xl transition-all transform hover:scale-105"
-              >
-                Open Interactive Map →
-              </a>
-              <div className="mt-8 grid grid-cols-3 gap-4 text-sm">
-                <div className="bg-red-700/30 backdrop-blur-sm rounded-lg p-3">
-                  <div className="font-bold">84 Regions</div>
-                  <div className="text-red-100">Full coverage</div>
-                </div>
-                <div className="bg-red-700/30 backdrop-blur-sm rounded-lg p-3">
-                  <div className="font-bold">4 Hazards</div>
-                  <div className="text-red-100">Asbestos, Lead, Radon, Mold</div>
-                </div>
-                <div className="bg-red-700/30 backdrop-blur-sm rounded-lg p-3">
-                  <div className="font-bold">Privacy-First</div>
-                  <div className="text-red-100">FSA-level only</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 border-2 border-blue-200 mt-12">
+          <div className="bg-gradient-to-br from-blue-50 to-slate-50 rounded-xl p-8 border-2 border-blue-200">
             <h3 className="text-2xl font-bold text-slate-900 mb-4 text-center">
-              Need Professional Assessment?
+              Need Professional Testing?
             </h3>
             <p className="text-slate-700 text-center mb-6">
-              Contact us for a detailed hazard risk assessment or to connect with verified abatement contractors.
+              Contact us for a free hazard risk assessment and contractor referrals.
             </p>
-            <div className="text-center">
+            <div className="text-center space-x-4">
+              <a 
+                href="/hazard-map/index.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block px-8 py-4 bg-red-600 hover:bg-red-700 text-white rounded-lg font-bold text-lg transition-colors"
+              >
+                View Map
+              </a>
               <a 
                 href="/contact" 
                 className="inline-block px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-bold text-lg transition-colors"
               >
-                Request Professional Check
+                Request Assessment
               </a>
             </div>
           </div>

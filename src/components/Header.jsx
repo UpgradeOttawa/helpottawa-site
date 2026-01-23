@@ -26,10 +26,8 @@ const Header = () => {
               Visual Designer
             </Link>
             <a 
-              href="/hazard-map/index.html" 
+              href="/hazard-map/" 
               className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
             >
               Hazard Map
             </a>
@@ -79,10 +77,8 @@ const Header = () => {
                 Visual Designer
               </Link>
               <a
-                href="/hazard-map/index.html"
+                href="/hazard-map/"
                 className="text-gray-700 hover:text-blue-600 font-medium py-2"
-                target="_blank"
-                rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Hazard Map

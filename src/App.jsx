@@ -9,7 +9,7 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import ContractorsPage from './pages/ContractorsPage';
 import HazardMapPage from './pages/HazardMapPage';
-import HazardMapLive from './pages/HazardMapLive'; // ← ONLY ONE IMPORT
+import HazardMapLive from './pages/HazardMapLive';
 
 function App() {
   return (
@@ -25,7 +25,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/contractors" element={<ContractorsPage />} />
             <Route path="/hazard-map" element={<HazardMapPage />} />
-            <Route path="/hazard-map-live" element={<HazardMapLive />} /> {/* ← ONLY ONE ROUTE */}
+            <Route path="/hazard-map-live" element={<HazardMapLive />} />
           </Routes>
         </main>
         <Footer />

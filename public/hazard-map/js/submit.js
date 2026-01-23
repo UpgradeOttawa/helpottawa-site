@@ -1,76 +1,69 @@
-// submit.js - Handle address submissions
-(function() {
-  const submitBtn = document.getElementById('btnSubmitAddr');
-  const addrInput = document.getElementById('addrInput');
-  const hazardSelect = document.getElementById('hazardSelect');
-  const strengthSelect = document.getElementById('strengthSelect');
+// Submit hazard observations with privacy protection
+async function submitHazard() {
+  const address = document.getElementById('addrInput').value.trim();
+  const hazardType = document.getElementById('hazardSelect').value;
+  const strength = parseFloat(document.getElementById('strengthSelect').value);
 
-  if (!submitBtn) return;
+  if (!address) {
+    alert('Please enter an address');
+    return;
+  }
 
-  submitBtn.addEventListener('click', async function() {
-    const address = addrInput.value.trim();
+  // Geocode address using Nominatim
+  const geocodeUrl = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address + ', Ottawa, Ontario')}`;
+  
+  try {
+    const response = await fetch(geocodeUrl);
+    const results = await response.json();
     
-    if (!address) {
-      alert('Please enter an address');
+    if (results.length === 0) {
+      alert('Address not found. Please try a different address.');
       return;
     }
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Geocoding...';
+    const { lat, lon } = results[0];
+    
+    // Add scattered points for privacy (±200m radius)
+    const points = [];
+    for (let i = 0; i < 5; i++) {
+      const offsetLat = (Math.random() - 0.5) * 0.002; // ~200m
+      const offsetLon = (Math.random() - 0.5) * 0.002;
+      points.push([
+        parseFloat(lat) + offsetLat,
+        parseFloat(lon) + offsetLon,
+        strength
+      ]);
+    }
 
-    try {
-      // Geocode using Nominatim (OpenStreetMap)
-      const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(address + ', Ottawa, Ontario, Canada')}&limit=1`;
-      
-      const response = await fetch(url);
-      const data = await response.json();
+    // Add to heatmap
+    if (window.heatLayer) {
+      points.forEach(point => {
+        window.heatLayer.addLatLng(L.latLng(point[0], point[1]));
+      });
+    }
 
-      if (data && data.length > 0) {
-        const result = data[0];
-        const lat = parseFloat(result.lat);
-        const lng = parseFloat(result.lon);
+    alert(`✓ Thank you! ${hazardType} observation added to map (privacy-protected)`);
+    document.getElementById('addrInput').value = '';
+  } catch (error) {
+    console.error('Submission error:', error);
+    alert('Error submitting observation. Please try again.');
+  }
+}
 
-        const hazard = hazardSelect.value;
-        const strength = parseFloat(strengthSelect.value);
+// Setup submit button
+document.addEventListener('DOMContentLoaded', () => {
+  const submitBtn = document.getElementById('btnSubmitAddr');
+  if (submitBtn) {
+    submitBtn.addEventListener('click', submitHazard);
+  }
 
-        // Use the exposed API from app.js
-        if (window.HAZARD_APP && window.HAZARD_APP.submitPoint) {
-          window.HAZARD_APP.submitPoint(lat, lng, hazard, strength);
-        }
-
-        // Clear input
-        addrInput.value = '';
-
-        // Show success
-        submitBtn.textContent = '✓ Added!';
-        submitBtn.classList.add('btn-success');
-        submitBtn.classList.remove('btn-info');
-
-        setTimeout(() => {
-          submitBtn.textContent = 'Add area heat';
-          submitBtn.classList.remove('btn-success');
-          submitBtn.classList.add('btn-info');
-          submitBtn.disabled = false;
-        }, 2000);
-
-      } else {
-        alert('Address not found. Please try a different address.');
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Add area heat';
+  // Allow Enter key in address field
+  const addrInput = document.getElementById('addrInput');
+  if (addrInput) {
+    addrInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        submitHazard();
       }
-
-    } catch (error) {
-      console.error('Geocoding error:', error);
-      alert('Error geocoding address. Please try again.');
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Add area heat';
-    }
-  });
-
-  // Enter key support
-  addrInput?.addEventListener('keypress', function(e) {
-    if (e.key === 'Enter') {
-      submitBtn.click();
-    }
-  });
-})();
+    });
+  }
+});

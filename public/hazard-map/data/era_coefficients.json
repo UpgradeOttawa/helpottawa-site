@@ -1,4 +1,4 @@
-[
+﻿[
   { "era_id": "pre_1940",   "label": "Pre-1940",   "start_year": 0,    "end_year": 1939, "baseline_coeff": 0.95, "sort_order": 1 },
   { "era_id": "1940_1959",  "label": "1940-1959",  "start_year": 1940, "end_year": 1959, "baseline_coeff": 0.85, "sort_order": 2 },
   { "era_id": "1960_1979",  "label": "1960-1979",  "start_year": 1960, "end_year": 1979, "baseline_coeff": 0.75, "sort_order": 3 },

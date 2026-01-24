@@ -4,7 +4,7 @@
   const DEFAULT_ZOOM = 11;
 
   const DATA = {
-    regions: "/hazard-map/data/orleans_regions.geojson",
+    regions: "/hazard-map/data/orleans_regions.geojson",     // 84 features (your current file)
     companies: "/hazard-map/data/companies_demo.json",
     eras: "/hazard-map/data/era_coefficients.json"
   };

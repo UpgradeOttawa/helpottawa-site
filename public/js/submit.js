@@ -1,4 +1,6 @@
 // Submit hazard observations with privacy protection
+// Phase 1: Basic functionality (matches original behavior)
+
 async function submitHazard() {
   const address = document.getElementById('addrInput').value.trim();
   const hazardType = document.getElementById('hazardSelect').value;
@@ -23,27 +25,14 @@ async function submitHazard() {
 
     const { lat, lon } = results[0];
     
-    // Add scattered points for privacy (±200m radius)
-    const points = [];
-    for (let i = 0; i < 5; i++) {
-      const offsetLat = (Math.random() - 0.5) * 0.002; // ~200m
-      const offsetLon = (Math.random() - 0.5) * 0.002;
-      points.push([
-        parseFloat(lat) + offsetLat,
-        parseFloat(lon) + offsetLon,
-        strength
-      ]);
+    // Call the submitPoint function from app.js
+    if (window.HAZARD_APP && window.HAZARD_APP.submitPoint) {
+      window.HAZARD_APP.submitPoint(parseFloat(lat), parseFloat(lon), hazardType, strength);
+      alert(`✓ ${hazardType} observation added to map (privacy-protected)`);
+      document.getElementById('addrInput').value = '';
+    } else {
+      throw new Error('Map API not ready');
     }
-
-    // Add to heatmap
-    if (window.heatLayer) {
-      points.forEach(point => {
-        window.heatLayer.addLatLng(L.latLng(point[0], point[1]));
-      });
-    }
-
-    alert(`✓ Thank you! ${hazardType} observation added to map (privacy-protected)`);
-    document.getElementById('addrInput').value = '';
   } catch (error) {
     console.error('Submission error:', error);
     alert('Error submitting observation. Please try again.');

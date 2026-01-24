@@ -1,4 +1,4 @@
-﻿html, body { height: 100%; margin: 0; }
+html, body { height: 100%; margin: 0; }
 body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
 #map { height: calc(100vh - 64px); width: 100vw; }
 .actionbar {

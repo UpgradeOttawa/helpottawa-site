@@ -1,8 +1,7 @@
 {
   "routes": [
     {
-      "src": "/hazard-map/(.*)",
-      "dest": "/hazard-map/$1"
+      "handle": "filesystem"
     },
     {
       "src": "/(.*)",
